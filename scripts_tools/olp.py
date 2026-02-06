@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 import datetime as dt
 
-pol=pd.read_csv(r"C:\Users\seant\Desktop\GIT\PricingWorkshop_RPM2026\Personal Auto Policy Data and Rate Tables\Personal Auto Dataset and Premiums.csv")
+pol=pd.read_csv('..\Personal Auto Policy Data and Rate Tables\Personal Auto Dataset and Premiums.csv')
 pol.columns=pol.columns.str.lower().str.replace(' ','_')
 tables=pd.read_excel('rate_tables.xlsx',sheet_name=None)
 
@@ -40,6 +40,7 @@ rated.loc[:,'expenses']=rated.olp*0.2+30
 rated['eff_dt'] = pd.to_datetime(rated.policyeffectivedate)
 rated.loc[:,'eym']=rated.eff_dt.apply(lambda t: f'{t.year}{t.month:02d}')
 
+rated=rated[[i for i in rated.columns if not i.startswith('f_')]].copy()
 rated.to_csv('rated_policies.zip', index=False, compression={'method': 'zip', 'archive_name': 'rated_policies.csv'})
 rated.to_csv('rated_policies.csv',index=False)
 
