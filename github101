@@ -1,0 +1,1394 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/trijot/PricingWorkshop_RPM2026/blob/main/github101\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "!git clone https://github.com/trijot/PricingWorkshop_RPM2026.git\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "3jfLNboe3fhY",
+        "outputId": "d34c58c5-8308-43d4-e21a-a1866c1af687"
+      },
+      "execution_count": 1,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Cloning into 'PricingWorkshop_RPM2026'...\n",
+            "remote: Enumerating objects: 204, done.\u001b[K\n",
+            "remote: Counting objects: 100% (19/19), done.\u001b[K\n",
+            "remote: Compressing objects: 100% (18/18), done.\u001b[K\n",
+            "remote: Total 204 (delta 9), reused 1 (delta 1), pack-reused 185 (from 2)\u001b[K\n",
+            "Receiving objects: 100% (204/204), 431.69 MiB | 28.90 MiB/s, done.\n",
+            "Resolving deltas: 100% (97/97), done.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "%cd PricingWorkshop_RPM2026"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "YcUQLUIX5l4t",
+        "outputId": "8159e4ce-09ff-46bb-fb01-96252d134dda"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "/content/PricingWorkshop_RPM2026\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git status"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "4-PfOyFh5w0J",
+        "outputId": "2f49d125-b702-4c5d-bdf8-fdf828593aea"
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "On branch main\n",
+            "Your branch is up to date with 'origin/main'.\n",
+            "\n",
+            "nothing to commit, working tree clean\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "ls"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "PzFebByl5xQp",
+        "outputId": "47dcaddf-547f-4956-b6d7-dd53914fbbd8"
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\u001b[0m\u001b[01;34m'Personal Auto Policy Data and Rate Tables'\u001b[0m/      \u001b[01;34mrater_files\u001b[0m/\n",
+            "'Personal Auto Policy Data and Rate Tables.zip'  'RPM 2026.pptx'\n",
+            " PriorRateTables_RatingAlgorithm.xlsx            'Welcome to Github'\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!find . -type f"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "2fOJXjef5xU5",
+        "outputId": "7fa5ca5e-806a-4c7f-f14d-0704829df8be"
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "./.git/index\n",
+            "./.git/HEAD\n",
+            "./.git/logs/HEAD\n",
+            "./.git/logs/refs/remotes/origin/HEAD\n",
+            "./.git/logs/refs/heads/main\n",
+            "./.git/info/exclude\n",
+            "./.git/objects/pack/pack-d638eb1eec6e30ddf26f5350e197a689397b4bb0.idx\n",
+            "./.git/objects/pack/pack-d638eb1eec6e30ddf26f5350e197a689397b4bb0.pack\n",
+            "./.git/config\n",
+            "./.git/refs/remotes/origin/HEAD\n",
+            "./.git/refs/heads/main\n",
+            "./.git/description\n",
+            "./.git/hooks/pre-push.sample\n",
+            "./.git/hooks/commit-msg.sample\n",
+            "./.git/hooks/pre-merge-commit.sample\n",
+            "./.git/hooks/pre-receive.sample\n",
+            "./.git/hooks/pre-applypatch.sample\n",
+            "./.git/hooks/push-to-checkout.sample\n",
+            "./.git/hooks/update.sample\n",
+            "./.git/hooks/fsmonitor-watchman.sample\n",
+            "./.git/hooks/prepare-commit-msg.sample\n",
+            "./.git/hooks/applypatch-msg.sample\n",
+            "./.git/hooks/pre-rebase.sample\n",
+            "./.git/hooks/post-update.sample\n",
+            "./.git/hooks/pre-commit.sample\n",
+            "./.git/packed-refs\n",
+            "./PriorRateTables_RatingAlgorithm.xlsx\n",
+            "./RPM 2026.pptx\n",
+            "./Personal Auto Policy Data and Rate Tables.zip\n",
+            "./rater_files/rate_tables.xlsx\n",
+            "./rater_files/dashboard.html\n",
+            "./rater_files/.ipynb_checkpoints/olp-checkpoint.py\n",
+            "./rater_files/.ipynb_checkpoints/Untitled-checkpoint.ipynb\n",
+            "./rater_files/.ipynb_checkpoints/olep-checkpoint.py\n",
+            "./rater_files/.ipynb_checkpoints/olp-checkpoint.ipynb\n",
+            "./rater_files/.ipynb_checkpoints/dashboard-checkpoint.py\n",
+            "./rater_files/rated_policies.zip\n",
+            "./rater_files/olp.py\n",
+            "./rater_files/dashboard.py\n",
+            "./rater_files/olep.py\n",
+            "./rater_files/Untitled.ipynb\n",
+            "./rater_files/olep.zip\n",
+            "./rater_files/Personal Auto Dataset and Premiums.csv\n",
+            "./rater_files/olp.ipynb\n",
+            "./Personal Auto Policy Data and Rate Tables/RateTables_RatingAlgorithm.xlsx\n",
+            "./Personal Auto Policy Data and Rate Tables/Personal Auto Dataset and Premiums.csv\n",
+            "./Welcome to Github\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git branch"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "jNdC3r5T5xYv",
+        "outputId": "609511f0-a430-462b-eb67-ebbdda97a322"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "* \u001b[32mmain\u001b[m\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git pull origin main"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "bOeyPB3m6ZW5",
+        "outputId": "1823d240-f6af-4a5a-ca2d-786ec1aa09bd"
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "From https://github.com/trijot/PricingWorkshop_RPM2026\n",
+            " * branch            main       -> FETCH_HEAD\n",
+            "Already up to date.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git status\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "0Ok8CWR462sM",
+        "outputId": "3f9cead1-7916-40a8-f6d0-ce13d3a6821c"
+      },
+      "execution_count": 8,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "On branch main\n",
+            "Your branch is up to date with 'origin/main'.\n",
+            "\n",
+            "nothing to commit, working tree clean\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "%cd PricingWorkshop_RPM2026\n",
+        "!git status"
+      ],
+      "metadata": {
+        "id": "0JPY_x7pFvnO",
+        "outputId": "859bdf49-c05b-4a58-d3bf-f11e71ac43db",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[Errno 2] No such file or directory: 'PricingWorkshop_RPM2026'\n",
+            "/content/PricingWorkshop_RPM2026\n",
+            "On branch main\n",
+            "Your branch is up to date with 'origin/main'.\n",
+            "\n",
+            "nothing to commit, working tree clean\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!cd /content/PricingWorkshop_RPM2026 && git status"
+      ],
+      "metadata": {
+        "id": "350MT4l3GJ18",
+        "outputId": "9353dc19-0143-4b71-f054-29bf5a2b4cbe",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "On branch main\n",
+            "Your branch is up to date with 'origin/main'.\n",
+            "\n",
+            "nothing to commit, working tree clean\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!cd /content/PricingWorkshop_RPM2026 && git config user.name \"Trijot Singh\"\n",
+        "!cd /content/PricingWorkshop_RPM2026 && git config user.email \"trijotsingh@gmail.com\""
+      ],
+      "metadata": {
+        "id": "0omdPN1AHppn"
+      },
+      "execution_count": 11,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!find /content/PricingWorkshop_RPM2026 -maxdepth 2 -type d"
+      ],
+      "metadata": {
+        "id": "hD8M1PXsHqQx",
+        "outputId": "ba114c05-4ebd-4731-eba2-0b27cd72a31a",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "/content/PricingWorkshop_RPM2026\n",
+            "/content/PricingWorkshop_RPM2026/.git\n",
+            "/content/PricingWorkshop_RPM2026/.git/branches\n",
+            "/content/PricingWorkshop_RPM2026/.git/logs\n",
+            "/content/PricingWorkshop_RPM2026/.git/info\n",
+            "/content/PricingWorkshop_RPM2026/.git/objects\n",
+            "/content/PricingWorkshop_RPM2026/.git/refs\n",
+            "/content/PricingWorkshop_RPM2026/.git/hooks\n",
+            "/content/PricingWorkshop_RPM2026/rater_files\n",
+            "/content/PricingWorkshop_RPM2026/rater_files/.ipynb_checkpoints\n",
+            "/content/PricingWorkshop_RPM2026/Personal Auto Policy Data and Rate Tables\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "import numpy as np\n",
+        "import random\n",
+        "\n",
+        "# Number of policyholders\n",
+        "n = 100\n",
+        "\n",
+        "# Sample values\n",
+        "cities = [\"Toronto\", \"Vancouver\", \"Calgary\", \"Winnipeg\", \"Montreal\", \"Ottawa\"]\n",
+        "genders = [\"Male\", \"Female\"]\n",
+        "policy_types = [\"Auto\", \"Home\", \"Travel\", \"Health\"]\n",
+        "vehicle_types = [\"Sedan\", \"SUV\", \"Truck\", \"Electric\", \"Hybrid\"]\n",
+        "\n",
+        "data = {\n",
+        "    \"Policy_ID\": [f\"P{1000+i}\" for i in range(n)],\n",
+        "    \"Member_ID\": [f\"M{5000+i}\" for i in range(n)],\n",
+        "    \"Age\": np.random.randint(18, 75, n),\n",
+        "    \"Gender\": [random.choice(genders) for _ in range(n)],\n",
+        "    \"City\": [random.choice(cities) for _ in range(n)],\n",
+        "    \"Policy_Type\": [random.choice(policy_types) for _ in range(n)],\n",
+        "    \"Vehicle_Type\": [random.choice(vehicle_types) for _ in range(n)],\n",
+        "    \"Annual_Premium\": np.round(np.random.uniform(300, 2000, n), 2),\n",
+        "    \"Claim_Count\": np.random.poisson(0.3, n),\n",
+        "    \"Policy_Start_Year\": np.random.randint(2018, 2025, n)\n",
+        "}\n",
+        "\n",
+        "# Create DataFrame\n",
+        "df = pd.DataFrame(data)\n",
+        "\n",
+        "# Save to CSV\n",
+        "df.to_csv(\"sample_policyholders.csv\", index=False)\n",
+        "\n",
+        "# Preview\n",
+        "df.head()"
+      ],
+      "metadata": {
+        "id": "pcq3FNByAt_W",
+        "outputId": "3c4e7952-d721-4663-ea12-de8667ba8ada",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 224
+        }
+      },
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "  Policy_ID Member_ID  Age  Gender      City Policy_Type Vehicle_Type  \\\n",
+              "0     P1000     M5000   35  Female   Calgary        Home          SUV   \n",
+              "1     P1001     M5001   18    Male  Montreal      Health        Truck   \n",
+              "2     P1002     M5002   33  Female   Toronto        Home          SUV   \n",
+              "3     P1003     M5003   26    Male  Winnipeg        Home        Sedan   \n",
+              "4     P1004     M5004   53  Female   Toronto        Home       Hybrid   \n",
+              "\n",
+              "   Annual_Premium  Claim_Count  Policy_Start_Year  \n",
+              "0          300.65            0               2018  \n",
+              "1         1483.09            1               2020  \n",
+              "2         1308.21            2               2024  \n",
+              "3          506.70            2               2018  \n",
+              "4         1718.03            0               2021  "
+            ],
+            "text/html": [
+              "\n",
+              "  <div id=\"df-8a7a870f-327d-4a1b-843d-b15a4461dbca\" class=\"colab-df-container\">\n",
+              "    <div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>Policy_ID</th>\n",
+              "      <th>Member_ID</th>\n",
+              "      <th>Age</th>\n",
+              "      <th>Gender</th>\n",
+              "      <th>City</th>\n",
+              "      <th>Policy_Type</th>\n",
+              "      <th>Vehicle_Type</th>\n",
+              "      <th>Annual_Premium</th>\n",
+              "      <th>Claim_Count</th>\n",
+              "      <th>Policy_Start_Year</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>0</th>\n",
+              "      <td>P1000</td>\n",
+              "      <td>M5000</td>\n",
+              "      <td>35</td>\n",
+              "      <td>Female</td>\n",
+              "      <td>Calgary</td>\n",
+              "      <td>Home</td>\n",
+              "      <td>SUV</td>\n",
+              "      <td>300.65</td>\n",
+              "      <td>0</td>\n",
+              "      <td>2018</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>1</th>\n",
+              "      <td>P1001</td>\n",
+              "      <td>M5001</td>\n",
+              "      <td>18</td>\n",
+              "      <td>Male</td>\n",
+              "      <td>Montreal</td>\n",
+              "      <td>Health</td>\n",
+              "      <td>Truck</td>\n",
+              "      <td>1483.09</td>\n",
+              "      <td>1</td>\n",
+              "      <td>2020</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2</th>\n",
+              "      <td>P1002</td>\n",
+              "      <td>M5002</td>\n",
+              "      <td>33</td>\n",
+              "      <td>Female</td>\n",
+              "      <td>Toronto</td>\n",
+              "      <td>Home</td>\n",
+              "      <td>SUV</td>\n",
+              "      <td>1308.21</td>\n",
+              "      <td>2</td>\n",
+              "      <td>2024</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3</th>\n",
+              "      <td>P1003</td>\n",
+              "      <td>M5003</td>\n",
+              "      <td>26</td>\n",
+              "      <td>Male</td>\n",
+              "      <td>Winnipeg</td>\n",
+              "      <td>Home</td>\n",
+              "      <td>Sedan</td>\n",
+              "      <td>506.70</td>\n",
+              "      <td>2</td>\n",
+              "      <td>2018</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>4</th>\n",
+              "      <td>P1004</td>\n",
+              "      <td>M5004</td>\n",
+              "      <td>53</td>\n",
+              "      <td>Female</td>\n",
+              "      <td>Toronto</td>\n",
+              "      <td>Home</td>\n",
+              "      <td>Hybrid</td>\n",
+              "      <td>1718.03</td>\n",
+              "      <td>0</td>\n",
+              "      <td>2021</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>\n",
+              "    <div class=\"colab-df-buttons\">\n",
+              "\n",
+              "  <div class=\"colab-df-container\">\n",
+              "    <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-8a7a870f-327d-4a1b-843d-b15a4461dbca')\"\n",
+              "            title=\"Convert this dataframe to an interactive table.\"\n",
+              "            style=\"display:none;\">\n",
+              "\n",
+              "  <svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\" viewBox=\"0 -960 960 960\">\n",
+              "    <path d=\"M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z\"/>\n",
+              "  </svg>\n",
+              "    </button>\n",
+              "\n",
+              "  <style>\n",
+              "    .colab-df-container {\n",
+              "      display:flex;\n",
+              "      gap: 12px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert {\n",
+              "      background-color: #E8F0FE;\n",
+              "      border: none;\n",
+              "      border-radius: 50%;\n",
+              "      cursor: pointer;\n",
+              "      display: none;\n",
+              "      fill: #1967D2;\n",
+              "      height: 32px;\n",
+              "      padding: 0 0 0 0;\n",
+              "      width: 32px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert:hover {\n",
+              "      background-color: #E2EBFA;\n",
+              "      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);\n",
+              "      fill: #174EA6;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-buttons div {\n",
+              "      margin-bottom: 4px;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert {\n",
+              "      background-color: #3B4455;\n",
+              "      fill: #D2E3FC;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert:hover {\n",
+              "      background-color: #434B5C;\n",
+              "      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);\n",
+              "      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));\n",
+              "      fill: #FFFFFF;\n",
+              "    }\n",
+              "  </style>\n",
+              "\n",
+              "    <script>\n",
+              "      const buttonEl =\n",
+              "        document.querySelector('#df-8a7a870f-327d-4a1b-843d-b15a4461dbca button.colab-df-convert');\n",
+              "      buttonEl.style.display =\n",
+              "        google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
+              "\n",
+              "      async function convertToInteractive(key) {\n",
+              "        const element = document.querySelector('#df-8a7a870f-327d-4a1b-843d-b15a4461dbca');\n",
+              "        const dataTable =\n",
+              "          await google.colab.kernel.invokeFunction('convertToInteractive',\n",
+              "                                                    [key], {});\n",
+              "        if (!dataTable) return;\n",
+              "\n",
+              "        const docLinkHtml = 'Like what you see? Visit the ' +\n",
+              "          '<a target=\"_blank\" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'\n",
+              "          + ' to learn more about interactive tables.';\n",
+              "        element.innerHTML = '';\n",
+              "        dataTable['output_type'] = 'display_data';\n",
+              "        await google.colab.output.renderOutput(dataTable, element);\n",
+              "        const docLink = document.createElement('div');\n",
+              "        docLink.innerHTML = docLinkHtml;\n",
+              "        element.appendChild(docLink);\n",
+              "      }\n",
+              "    </script>\n",
+              "  </div>\n",
+              "\n",
+              "\n",
+              "    </div>\n",
+              "  </div>\n"
+            ],
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "dataframe",
+              "variable_name": "df",
+              "summary": "{\n  \"name\": \"df\",\n  \"rows\": 100,\n  \"fields\": [\n    {\n      \"column\": \"Policy_ID\",\n      \"properties\": {\n        \"dtype\": \"string\",\n        \"num_unique_values\": 100,\n        \"samples\": [\n          \"P1083\",\n          \"P1053\",\n          \"P1070\"\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"Member_ID\",\n      \"properties\": {\n        \"dtype\": \"string\",\n        \"num_unique_values\": 100,\n        \"samples\": [\n          \"M5083\",\n          \"M5053\",\n          \"M5070\"\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"Age\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 16,\n        \"min\": 18,\n        \"max\": 74,\n        \"num_unique_values\": 44,\n        \"samples\": [\n          64,\n          28,\n          69\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"Gender\",\n      \"properties\": {\n        \"dtype\": \"category\",\n        \"num_unique_values\": 2,\n        \"samples\": [\n          \"Male\",\n          \"Female\"\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"City\",\n      \"properties\": {\n        \"dtype\": \"category\",\n        \"num_unique_values\": 6,\n        \"samples\": [\n          \"Calgary\",\n          \"Montreal\"\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"Policy_Type\",\n      \"properties\": {\n        \"dtype\": \"category\",\n        \"num_unique_values\": 4,\n        \"samples\": [\n          \"Health\",\n          \"Auto\"\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"Vehicle_Type\",\n      \"properties\": {\n        \"dtype\": \"category\",\n        \"num_unique_values\": 5,\n        \"samples\": [\n          \"Truck\",\n          \"Electric\"\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"Annual_Premium\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 514.1011569254742,\n        \"min\": 300.65,\n        \"max\": 1997.22,\n        \"num_unique_values\": 100,\n        \"samples\": [\n          778.87,\n          1928.27\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"Claim_Count\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 0,\n        \"min\": 0,\n        \"max\": 2,\n        \"num_unique_values\": 3,\n        \"samples\": [\n          0,\n          1\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"Policy_Start_Year\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 1,\n        \"min\": 2018,\n        \"max\": 2024,\n        \"num_unique_values\": 7,\n        \"samples\": [\n          2018,\n          2020\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    }\n  ]\n}"
+            }
+          },
+          "metadata": {},
+          "execution_count": 13
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "MEIovsz3AuHN"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git config user.name \"Trijot Singh\"\n",
+        "!git config user.email \"trijotsingh@gmail.com\""
+      ],
+      "metadata": {
+        "id": "JjHh-O3e6-4H"
+      },
+      "execution_count": 14,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git add .\n",
+        "!git commit -m \"Resolve merge conflict and merge feature-update-rates\""
+      ],
+      "metadata": {
+        "id": "gDpdDdbb_HLi",
+        "outputId": "c915c642-7006-4b04-b016-a77f0b52b7c1",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 15,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[main 944b711] Resolve merge conflict and merge feature-update-rates\n",
+            " 1 file changed, 101 insertions(+)\n",
+            " create mode 100644 sample_policyholders.csv\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git status"
+      ],
+      "metadata": {
+        "id": "dLfjp71PEp3r",
+        "outputId": "eaf99fb0-0dfc-40d1-c990-5afdea34bd03",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 16,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "On branch main\n",
+            "Your branch is ahead of 'origin/main' by 1 commit.\n",
+            "  (use \"git push\" to publish your local commits)\n",
+            "\n",
+            "nothing to commit, working tree clean\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git config user.name \"Trijot Singh\"\n",
+        "!git config user.email \"trijotsingh@gmail.com\"\n",
+        "!git branch\n",
+        "!git status"
+      ],
+      "metadata": {
+        "id": "M8xbb91jJ_Dy",
+        "outputId": "f25cdbaa-c767-45c5-e3dd-f579928c85cc",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 23,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "* \u001b[32mmain\u001b[m\n",
+            "On branch main\n",
+            "Your branch is ahead of 'origin/main' by 1 commit.\n",
+            "  (use \"git push\" to publish your local commits)\n",
+            "\n",
+            "nothing to commit, working tree clean\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from getpass import getpass\n",
+        "token = getpass(\"GitHub token: \")"
+      ],
+      "metadata": {
+        "id": "H28OOznuNT8c",
+        "outputId": "4a4857fc-a1a7-4c28-9ad0-f1508b3bee0d",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 24,
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "GitHub token: ··········\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git push https://trijot:{token}@github.com/trijot/PricingWorkshop_RPM2026.git main"
+      ],
+      "metadata": {
+        "id": "K6Z-bIQ8J-EB",
+        "outputId": "65a93e5b-17c1-48fe-ad1c-add76c817b99",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 27,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enumerating objects: 4, done.\n",
+            "Counting objects:  25% (1/4)\rCounting objects:  50% (2/4)\rCounting objects:  75% (3/4)\rCounting objects: 100% (4/4)\rCounting objects: 100% (4/4), done.\n",
+            "Delta compression using up to 2 threads\n",
+            "Compressing objects:  33% (1/3)\rCompressing objects:  66% (2/3)\rCompressing objects: 100% (3/3)\rCompressing objects: 100% (3/3), done.\n",
+            "Writing objects:  33% (1/3)\rWriting objects:  66% (2/3)\rWriting objects: 100% (3/3)\rWriting objects: 100% (3/3), 1.96 KiB | 1.96 MiB/s, done.\n",
+            "Total 3 (delta 1), reused 0 (delta 0), pack-reused 0\n",
+            "remote: Resolving deltas:   0% (0/1)\u001b[K\rremote: Resolving deltas: 100% (1/1)\u001b[K\rremote: Resolving deltas: 100% (1/1), completed with 1 local object.\u001b[K\n",
+            "To https://github.com/trijot/PricingWorkshop_RPM2026.git\n",
+            "   6a2346e..944b711  main -> main\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git log --oneline --graph --decorate --all"
+      ],
+      "metadata": {
+        "id": "lq91Pes1_Hxw",
+        "outputId": "ecf12517-f061-4ad2-931d-c56ba541fa1a",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 28,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "* \u001b[33m944b711\u001b[m\u001b[33m (\u001b[m\u001b[1;36mHEAD -> \u001b[m\u001b[1;32mmain\u001b[m\u001b[33m)\u001b[m Resolve merge conflict and merge feature-update-rates\n",
+            "* \u001b[33m6a2346e\u001b[m\u001b[33m (\u001b[m\u001b[1;31morigin/main\u001b[m\u001b[33m, \u001b[m\u001b[1;31morigin/HEAD\u001b[m\u001b[33m)\u001b[m Github Basics\n",
+            "* \u001b[33m8f6eb2a\u001b[m Delete .gitignore\n",
+            "* \u001b[33m9b417af\u001b[m Delete LICENSE\n",
+            "* \u001b[33m3dd99b1\u001b[m Delete README.md\n",
+            "* \u001b[33m60b7538\u001b[m Delete Image_20260205_135649_393.jpeg\n",
+            "* \u001b[33me34df19\u001b[m Delete Github intro.pptx\n",
+            "* \u001b[33m493adcc\u001b[m Delete Github intro.key\n",
+            "* \u001b[33m2ac69c6\u001b[m Delete scripts_tools directory\n",
+            "* \u001b[33m3a794de\u001b[m Update RPM 2026.pptx\n",
+            "*   \u001b[33mad06c7c\u001b[m Merge branch 'main' of https://github.com/trijot/PricingWorkshop_RPM2026\n",
+            "\u001b[32m|\u001b[m\u001b[33m\\\u001b[m  \n",
+            "\u001b[32m|\u001b[m * \u001b[33m97aefe0\u001b[m Colab test\n",
+            "\u001b[32m|\u001b[m * \u001b[33m918b16f\u001b[m Colab test\n",
+            "\u001b[32m|\u001b[m * \u001b[33mbb70d00\u001b[m Deleted files\n",
+            "* \u001b[33m|\u001b[m \u001b[33m938af61\u001b[m Update RPM 2026.pptx\n",
+            "\u001b[33m|\u001b[m\u001b[33m/\u001b[m  \n",
+            "* \u001b[33m36b5592\u001b[m Update RPM 2026.pptx\n",
+            "*   \u001b[33mf4755ca\u001b[m Merge branch 'main' of https://github.com/trijot/PricingWorkshop_RPM2026\n",
+            "\u001b[34m|\u001b[m\u001b[35m\\\u001b[m  \n",
+            "\u001b[34m|\u001b[m * \u001b[33m8644176\u001b[m Zipped indication upload\n",
+            "* \u001b[35m|\u001b[m \u001b[33m920cf75\u001b[m Update RPM 2026.pptx\n",
+            "\u001b[35m|\u001b[m\u001b[35m/\u001b[m  \n",
+            "* \u001b[33m6a71422\u001b[m Update RPM 2026.pptx\n",
+            "* \u001b[33m6c09434\u001b[m Indication update\n",
+            "* \u001b[33m99d4514\u001b[m Slide update Malloy\n",
+            "* \u001b[33m3862fcc\u001b[m Updates from working session\n",
+            "* \u001b[33mbfeef7d\u001b[m RPM 2026\n",
+            "* \u001b[33m88637d8\u001b[m Updated ppt for submission\n",
+            "* \u001b[33mfdefabd\u001b[m trijotsingh_Picture\n",
+            "*   \u001b[33ma9e732e\u001b[m Merge branch 'main' of https://github.com/trijot/PricingWorkshop_RPM2026 into main\n",
+            "\u001b[36m|\u001b[m\u001b[1;31m\\\u001b[m  \n",
+            "\u001b[36m|\u001b[m * \u001b[33m1eb3b27\u001b[m RPM Slide - Update Nitai\n",
+            "* \u001b[1;31m|\u001b[m \u001b[33m51eeca8\u001b[m Wasim Update 2.26\n",
+            "\u001b[1;31m|\u001b[m\u001b[1;31m/\u001b[m  \n",
+            "* \u001b[33md37db11\u001b[m Updated_nitai\n",
+            "* \u001b[33m077fa37\u001b[m Indication update\n",
+            "* \u001b[33mc8d622f\u001b[m indication update\n",
+            "* \u001b[33me03e398\u001b[m GitHub intro\n",
+            "* \u001b[33m7dbed9c\u001b[m Slide Update\n",
+            "* \u001b[33m5064a4c\u001b[m Delete RPM 2026_20250205.pptx\n",
+            "* \u001b[33mdfdd9c9\u001b[m Add files via upload\n",
+            "* \u001b[33m6f40a07\u001b[m Branch update\n",
+            "* \u001b[33m47d7f06\u001b[m dashboard_path_updated\n",
+            "* \u001b[33ma68a07a\u001b[m Create dashboard\n",
+            "* \u001b[33m1fcca39\u001b[m Create olp\n",
+            "* \u001b[33m12cc9f6\u001b[m Initial rater/excel slides\n",
+            "* \u001b[33m982f13e\u001b[m Add files via upload\n",
+            "* \u001b[33me97781a\u001b[m Script update\n",
+            "* \u001b[33m36c343a\u001b[m Simulated_losses\n",
+            "* \u001b[33m0d72109\u001b[m Update README.md\n",
+            "* \u001b[33m9d4733a\u001b[m Delete RateTables_RatingAlgorithm.xlsx\n",
+            "* \u001b[33md6ce251\u001b[m Add files via upload\n",
+            "* \u001b[33ma0feb79\u001b[m Add files via upload\n",
+            "* \u001b[33mab2db7d\u001b[m Update README.md\n",
+            "* \u001b[33m6cc939f\u001b[m Update README.md\n",
+            "* \u001b[33md2daa72\u001b[m Update README.md\n",
+            "* \u001b[33mb1ad964\u001b[m Update README.md\n",
+            "* \u001b[33ma82bd7b\u001b[m Initial commit\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "%cd /content/PricingWorkshop_RPM2026\n",
+        "!git config user.name \"Trijot Singh\"\n",
+        "!git config user.email \"trijotsingh@gmail.com\"\n",
+        "!git checkout -b feature-add-policy-csv || git checkout feature-add-policy-csv\n",
+        "\n",
+        "import pandas as pd\n",
+        "import numpy as np\n",
+        "\n",
+        "n = 100\n",
+        "df = pd.DataFrame({\n",
+        "    \"policy_id\": [f\"P{1000+i}\" for i in range(n)],\n",
+        "    \"member_id\": [f\"M{5000+i}\" for i in range(n)],\n",
+        "    \"age\": np.random.randint(18, 75, n),\n",
+        "    \"gender\": np.random.choice([\"Male\", \"Female\"], n),\n",
+        "    \"province\": np.random.choice([\"MB\", \"ON\", \"BC\", \"AB\"], n),\n",
+        "    \"policy_type\": np.random.choice([\"Auto\", \"Home\", \"Travel\"], n),\n",
+        "    \"annual_premium\": np.round(np.random.uniform(300, 2500, n), 2),\n",
+        "    \"claim_count\": np.random.poisson(0.3, n)\n",
+        "})\n",
+        "df.to_csv(\"sample_policyholders_100.csv\", index=False)\n",
+        "\n",
+        "!git add sample_policyholders_100.csv\n",
+        "!git commit -m \"Add sample policyholder CSV with 100 members\""
+      ],
+      "metadata": {
+        "id": "4JAzo8dzCJe7",
+        "outputId": "1f7c5c12-ddb1-438c-a837-1a3d77ab43a8",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 29,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "/content/PricingWorkshop_RPM2026\n",
+            "Switched to a new branch 'feature-add-policy-csv'\n",
+            "[feature-add-policy-csv f128a98] Add sample policyholder CSV with 100 members\n",
+            " 1 file changed, 101 insertions(+)\n",
+            " create mode 100644 sample_policyholders_100.csv\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from getpass import getpass\n",
+        "token = getpass(\"Paste GitHub token: \")\n",
+        "!git push https://trijot:{token}@github.com/trijot/PricingWorkshop_RPM2026.git feature-add-policy-csv"
+      ],
+      "metadata": {
+        "id": "_KINVv8JCJ0o",
+        "outputId": "3bf24adb-96e8-4f29-f9e0-63b22ae44310",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 31,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Paste GitHub token: ··········\n",
+            "Enumerating objects: 4, done.\n",
+            "Counting objects: 100% (4/4), done.\n",
+            "Delta compression using up to 2 threads\n",
+            "Compressing objects: 100% (3/3), done.\n",
+            "Writing objects: 100% (3/3), 1.58 KiB | 1.58 MiB/s, done.\n",
+            "Total 3 (delta 1), reused 0 (delta 0), pack-reused 0\n",
+            "remote: Resolving deltas: 100% (1/1), completed with 1 local object.\u001b[K\n",
+            "remote: \n",
+            "remote: Create a pull request for 'feature-add-policy-csv' on GitHub by visiting:\u001b[K\n",
+            "remote:      https://github.com/trijot/PricingWorkshop_RPM2026/pull/new/feature-add-policy-csv\u001b[K\n",
+            "remote: \n",
+            "To https://github.com/trijot/PricingWorkshop_RPM2026.git\n",
+            " * [new branch]      feature-add-policy-csv -> feature-add-policy-csv\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "%cd /content/PricingWorkshop_RPM2026\n",
+        "!pwd\n",
+        "!git status"
+      ],
+      "metadata": {
+        "id": "zZO4U9nvCJ91",
+        "outputId": "7ffbaf72-b3b7-4003-bd7c-7b8603851644",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 32,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "/content/PricingWorkshop_RPM2026\n",
+            "/content/PricingWorkshop_RPM2026\n",
+            "On branch feature-add-policy-csv\n",
+            "nothing to commit, working tree clean\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git config user.name \"Trijot Singh\"\n",
+        "!git config user.email \"trijotsingh@gmail.com\""
+      ],
+      "metadata": {
+        "id": "Vz2Ny7dLQGY3"
+      },
+      "execution_count": 33,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git checkout -b feature-add-policy-csv"
+      ],
+      "metadata": {
+        "id": "O-GGe8r7QQTg",
+        "outputId": "be0b96b0-b518-4892-ee2f-d471cf157d80",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 34,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "fatal: A branch named 'feature-add-policy-csv' already exists.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git checkout feature-add-policy-csv"
+      ],
+      "metadata": {
+        "id": "3CYv_dWwQQ7K",
+        "outputId": "062de975-6292-4fac-84d2-ac6813235f28",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 35,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Already on 'feature-add-policy-csv'\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import pandas as pd\n",
+        "import numpy as np\n",
+        "\n",
+        "n = 100\n",
+        "\n",
+        "df = pd.DataFrame({\n",
+        "    \"policy_id\": [f\"P{1000+i}\" for i in range(n)],\n",
+        "    \"member_id\": [f\"M{5000+i}\" for i in range(n)],\n",
+        "    \"age\": np.random.randint(18, 70, n),\n",
+        "    \"gender\": np.random.choice([\"Male\", \"Female\"], n),\n",
+        "    \"province\": np.random.choice([\"MB\", \"ON\", \"BC\", \"AB\"], n),\n",
+        "    \"policy_type\": np.random.choice([\"Auto\", \"Home\", \"Travel\"], n),\n",
+        "    \"annual_premium\": np.round(np.random.uniform(300, 2500, n), 2),\n",
+        "    \"claim_count\": np.random.poisson(0.3, n)\n",
+        "})\n",
+        "\n",
+        "csv_path = \"/content/PricingWorkshop_RPM2026/sample_policyholders_100.csv\"\n",
+        "df.to_csv(csv_path, index=False)\n",
+        "\n",
+        "df.head()"
+      ],
+      "metadata": {
+        "id": "8ev-z49AQQ-n",
+        "outputId": "f85215d6-f49b-4e70-c48c-8dd224fc9c49",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 204
+        }
+      },
+      "execution_count": 37,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "  policy_id member_id  age  gender province policy_type  annual_premium  \\\n",
+              "0     P1000     M5000   27    Male       ON        Home         2264.49   \n",
+              "1     P1001     M5001   53  Female       ON      Travel          381.96   \n",
+              "2     P1002     M5002   51    Male       BC      Travel         1177.19   \n",
+              "3     P1003     M5003   57  Female       BC      Travel          560.35   \n",
+              "4     P1004     M5004   46  Female       BC        Home         1595.43   \n",
+              "\n",
+              "   claim_count  \n",
+              "0            0  \n",
+              "1            0  \n",
+              "2            0  \n",
+              "3            0  \n",
+              "4            0  "
+            ],
+            "text/html": [
+              "\n",
+              "  <div id=\"df-e57d8f15-963b-4938-ba49-edb387360335\" class=\"colab-df-container\">\n",
+              "    <div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>policy_id</th>\n",
+              "      <th>member_id</th>\n",
+              "      <th>age</th>\n",
+              "      <th>gender</th>\n",
+              "      <th>province</th>\n",
+              "      <th>policy_type</th>\n",
+              "      <th>annual_premium</th>\n",
+              "      <th>claim_count</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>0</th>\n",
+              "      <td>P1000</td>\n",
+              "      <td>M5000</td>\n",
+              "      <td>27</td>\n",
+              "      <td>Male</td>\n",
+              "      <td>ON</td>\n",
+              "      <td>Home</td>\n",
+              "      <td>2264.49</td>\n",
+              "      <td>0</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>1</th>\n",
+              "      <td>P1001</td>\n",
+              "      <td>M5001</td>\n",
+              "      <td>53</td>\n",
+              "      <td>Female</td>\n",
+              "      <td>ON</td>\n",
+              "      <td>Travel</td>\n",
+              "      <td>381.96</td>\n",
+              "      <td>0</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2</th>\n",
+              "      <td>P1002</td>\n",
+              "      <td>M5002</td>\n",
+              "      <td>51</td>\n",
+              "      <td>Male</td>\n",
+              "      <td>BC</td>\n",
+              "      <td>Travel</td>\n",
+              "      <td>1177.19</td>\n",
+              "      <td>0</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3</th>\n",
+              "      <td>P1003</td>\n",
+              "      <td>M5003</td>\n",
+              "      <td>57</td>\n",
+              "      <td>Female</td>\n",
+              "      <td>BC</td>\n",
+              "      <td>Travel</td>\n",
+              "      <td>560.35</td>\n",
+              "      <td>0</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>4</th>\n",
+              "      <td>P1004</td>\n",
+              "      <td>M5004</td>\n",
+              "      <td>46</td>\n",
+              "      <td>Female</td>\n",
+              "      <td>BC</td>\n",
+              "      <td>Home</td>\n",
+              "      <td>1595.43</td>\n",
+              "      <td>0</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>\n",
+              "    <div class=\"colab-df-buttons\">\n",
+              "\n",
+              "  <div class=\"colab-df-container\">\n",
+              "    <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-e57d8f15-963b-4938-ba49-edb387360335')\"\n",
+              "            title=\"Convert this dataframe to an interactive table.\"\n",
+              "            style=\"display:none;\">\n",
+              "\n",
+              "  <svg xmlns=\"http://www.w3.org/2000/svg\" height=\"24px\" viewBox=\"0 -960 960 960\">\n",
+              "    <path d=\"M120-120v-720h720v720H120Zm60-500h600v-160H180v160Zm220 220h160v-160H400v160Zm0 220h160v-160H400v160ZM180-400h160v-160H180v160Zm440 0h160v-160H620v160ZM180-180h160v-160H180v160Zm440 0h160v-160H620v160Z\"/>\n",
+              "  </svg>\n",
+              "    </button>\n",
+              "\n",
+              "  <style>\n",
+              "    .colab-df-container {\n",
+              "      display:flex;\n",
+              "      gap: 12px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert {\n",
+              "      background-color: #E8F0FE;\n",
+              "      border: none;\n",
+              "      border-radius: 50%;\n",
+              "      cursor: pointer;\n",
+              "      display: none;\n",
+              "      fill: #1967D2;\n",
+              "      height: 32px;\n",
+              "      padding: 0 0 0 0;\n",
+              "      width: 32px;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-convert:hover {\n",
+              "      background-color: #E2EBFA;\n",
+              "      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);\n",
+              "      fill: #174EA6;\n",
+              "    }\n",
+              "\n",
+              "    .colab-df-buttons div {\n",
+              "      margin-bottom: 4px;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert {\n",
+              "      background-color: #3B4455;\n",
+              "      fill: #D2E3FC;\n",
+              "    }\n",
+              "\n",
+              "    [theme=dark] .colab-df-convert:hover {\n",
+              "      background-color: #434B5C;\n",
+              "      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);\n",
+              "      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));\n",
+              "      fill: #FFFFFF;\n",
+              "    }\n",
+              "  </style>\n",
+              "\n",
+              "    <script>\n",
+              "      const buttonEl =\n",
+              "        document.querySelector('#df-e57d8f15-963b-4938-ba49-edb387360335 button.colab-df-convert');\n",
+              "      buttonEl.style.display =\n",
+              "        google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
+              "\n",
+              "      async function convertToInteractive(key) {\n",
+              "        const element = document.querySelector('#df-e57d8f15-963b-4938-ba49-edb387360335');\n",
+              "        const dataTable =\n",
+              "          await google.colab.kernel.invokeFunction('convertToInteractive',\n",
+              "                                                    [key], {});\n",
+              "        if (!dataTable) return;\n",
+              "\n",
+              "        const docLinkHtml = 'Like what you see? Visit the ' +\n",
+              "          '<a target=\"_blank\" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'\n",
+              "          + ' to learn more about interactive tables.';\n",
+              "        element.innerHTML = '';\n",
+              "        dataTable['output_type'] = 'display_data';\n",
+              "        await google.colab.output.renderOutput(dataTable, element);\n",
+              "        const docLink = document.createElement('div');\n",
+              "        docLink.innerHTML = docLinkHtml;\n",
+              "        element.appendChild(docLink);\n",
+              "      }\n",
+              "    </script>\n",
+              "  </div>\n",
+              "\n",
+              "\n",
+              "    </div>\n",
+              "  </div>\n"
+            ],
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "dataframe",
+              "variable_name": "df",
+              "summary": "{\n  \"name\": \"df\",\n  \"rows\": 100,\n  \"fields\": [\n    {\n      \"column\": \"policy_id\",\n      \"properties\": {\n        \"dtype\": \"string\",\n        \"num_unique_values\": 100,\n        \"samples\": [\n          \"P1083\",\n          \"P1053\",\n          \"P1070\"\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"member_id\",\n      \"properties\": {\n        \"dtype\": \"string\",\n        \"num_unique_values\": 100,\n        \"samples\": [\n          \"M5083\",\n          \"M5053\",\n          \"M5070\"\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"age\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 14,\n        \"min\": 18,\n        \"max\": 69,\n        \"num_unique_values\": 45,\n        \"samples\": [\n          61,\n          67,\n          62\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"gender\",\n      \"properties\": {\n        \"dtype\": \"category\",\n        \"num_unique_values\": 2,\n        \"samples\": [\n          \"Female\",\n          \"Male\"\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"province\",\n      \"properties\": {\n        \"dtype\": \"category\",\n        \"num_unique_values\": 4,\n        \"samples\": [\n          \"BC\",\n          \"MB\"\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"policy_type\",\n      \"properties\": {\n        \"dtype\": \"category\",\n        \"num_unique_values\": 3,\n        \"samples\": [\n          \"Home\",\n          \"Travel\"\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"annual_premium\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 647.4339116631319,\n        \"min\": 300.9,\n        \"max\": 2486.23,\n        \"num_unique_values\": 100,\n        \"samples\": [\n          2158.58,\n          1131.31\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"claim_count\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 0,\n        \"min\": 0,\n        \"max\": 3,\n        \"num_unique_values\": 4,\n        \"samples\": [\n          1,\n          2\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    }\n  ]\n}"
+            }
+          },
+          "metadata": {},
+          "execution_count": 37
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!ls -l /content/PricingWorkshop_RPM2026\n",
+        "!git status"
+      ],
+      "metadata": {
+        "id": "bJkdDKOeQRAZ",
+        "outputId": "5471f29a-d4e8-4010-c28d-ad6feec13d8c",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 38,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "total 30576\n",
+            "drwxr-xr-x 2 root root     4096 Mar 13 02:58 'Personal Auto Policy Data and Rate Tables'\n",
+            "-rw-r--r-- 1 root root  5554971 Mar 13 02:58 'Personal Auto Policy Data and Rate Tables.zip'\n",
+            "-rw-r--r-- 1 root root    20185 Mar 13 02:58  PriorRateTables_RatingAlgorithm.xlsx\n",
+            "drwxr-xr-x 3 root root     4096 Mar 13 02:58  rater_files\n",
+            "-rw-r--r-- 1 root root 25698703 Mar 13 02:58 'RPM 2026.pptx'\n",
+            "-rw-r--r-- 1 root root     4004 Mar 13 03:37  sample_policyholders_100.csv\n",
+            "-rw-r--r-- 1 root root     5704 Mar 13 03:01  sample_policyholders.csv\n",
+            "-rw-r--r-- 1 root root     7640 Mar 13 02:58 'Welcome to Github'\n",
+            "On branch feature-add-policy-csv\n",
+            "Changes not staged for commit:\n",
+            "  (use \"git add <file>...\" to update what will be committed)\n",
+            "  (use \"git restore <file>...\" to discard changes in working directory)\n",
+            "\t\u001b[31mmodified:   sample_policyholders_100.csv\u001b[m\n",
+            "\n",
+            "no changes added to commit (use \"git add\" and/or \"git commit -a\")\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git add sample_policyholders_100.csv\n",
+        "!git commit -m \"Add sample policyholder CSV with 100 members\""
+      ],
+      "metadata": {
+        "id": "AoOU72n4QRCB",
+        "outputId": "f5f57c0d-dd87-49dc-f144-73e5368e6d7e",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 39,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[feature-add-policy-csv 066d4dd] Add sample policyholder CSV with 100 members\n",
+            " 1 file changed, 101 insertions(+), 101 deletions(-)\n",
+            " rewrite sample_policyholders_100.csv (97%)\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from getpass import getpass\n",
+        "token = getpass(\"Paste GitHub token: \")\n",
+        "!git push https://trijot:{token}@github.com/trijot/PricingWorkshop_RPM2026.git feature-add-policy-csv"
+      ],
+      "metadata": {
+        "id": "XDWzUkrTRaYM",
+        "outputId": "25cee1ed-ce0a-4c0c-d109-9aad6e06794d",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        }
+      },
+      "execution_count": 40,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Paste GitHub token: ··········\n",
+            "Enumerating objects: 5, done.\n",
+            "Counting objects: 100% (5/5), done.\n",
+            "Delta compression using up to 2 threads\n",
+            "Compressing objects: 100% (3/3), done.\n",
+            "Writing objects: 100% (3/3), 1.57 KiB | 1.57 MiB/s, done.\n",
+            "Total 3 (delta 1), reused 0 (delta 0), pack-reused 0\n",
+            "remote: Resolving deltas: 100% (1/1), completed with 1 local object.\u001b[K\n",
+            "To https://github.com/trijot/PricingWorkshop_RPM2026.git\n",
+            "   f128a98..066d4dd  feature-add-policy-csv -> feature-add-policy-csv\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "1f6GaJkTRep2"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "colab": {
+      "name": "Welcome To Colab",
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "display_name": "Python 3",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
+}
