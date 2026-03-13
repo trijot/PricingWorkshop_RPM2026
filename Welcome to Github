@@ -1,0 +1,264 @@
+{
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/trijot/PricingWorkshop_RPM2026/blob/main/Welcome%20to%20Github\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "\n",
+        "!git clone https://github.com/trijot/PricingWorkshop_RPM2026.git\n"
+      ],
+      "metadata": {
+        "id": "3jfLNboe3fhY"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "%cd PricingWorkshop_RPM2026"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "YcUQLUIX5l4t",
+        "outputId": "a9af539e-627b-4388-9f8d-e61a8e183bfa"
+      },
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[Errno 2] No such file or directory: 'PricingWorkshop_RPM2026'\n",
+            "/content/PricingWorkshop_RPM2026\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git status"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "4-PfOyFh5w0J",
+        "outputId": "6ba85dc8-e789-4c7d-c990-0c8a6593ec8f"
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "On branch main\n",
+            "Your branch is up to date with 'origin/main'.\n",
+            "\n",
+            "nothing to commit, working tree clean\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "ls"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "PzFebByl5xQp",
+        "outputId": "b6bfd373-2ea4-4ad6-a0a1-adfea5955ea3"
+      },
+      "execution_count": 15,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "\u001b[0m\u001b[01;34m'Personal Auto Policy Data and Rate Tables'\u001b[0m/      \u001b[01;34mrater_files\u001b[0m/\n",
+            "'Personal Auto Policy Data and Rate Tables.zip'  'RPM 2026.pptx'\n",
+            " PriorRateTables_RatingAlgorithm.xlsx\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!find . -type f"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "2fOJXjef5xU5",
+        "outputId": "c3d37505-8c06-4a7d-b040-62675a1aa7d5"
+      },
+      "execution_count": 17,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "./.git/index\n",
+            "./.git/HEAD\n",
+            "./.git/logs/HEAD\n",
+            "./.git/logs/refs/remotes/origin/HEAD\n",
+            "./.git/logs/refs/heads/main\n",
+            "./.git/info/exclude\n",
+            "./.git/objects/pack/pack-09e7eddfee54152232b88389254b55bef04b2b61.pack\n",
+            "./.git/objects/pack/pack-09e7eddfee54152232b88389254b55bef04b2b61.idx\n",
+            "./.git/config\n",
+            "./.git/refs/remotes/origin/HEAD\n",
+            "./.git/refs/heads/main\n",
+            "./.git/description\n",
+            "./.git/hooks/pre-push.sample\n",
+            "./.git/hooks/commit-msg.sample\n",
+            "./.git/hooks/pre-merge-commit.sample\n",
+            "./.git/hooks/pre-receive.sample\n",
+            "./.git/hooks/pre-applypatch.sample\n",
+            "./.git/hooks/push-to-checkout.sample\n",
+            "./.git/hooks/update.sample\n",
+            "./.git/hooks/fsmonitor-watchman.sample\n",
+            "./.git/hooks/prepare-commit-msg.sample\n",
+            "./.git/hooks/applypatch-msg.sample\n",
+            "./.git/hooks/pre-rebase.sample\n",
+            "./.git/hooks/post-update.sample\n",
+            "./.git/hooks/pre-commit.sample\n",
+            "./.git/packed-refs\n",
+            "./PriorRateTables_RatingAlgorithm.xlsx\n",
+            "./RPM 2026.pptx\n",
+            "./Personal Auto Policy Data and Rate Tables.zip\n",
+            "./rater_files/rate_tables.xlsx\n",
+            "./rater_files/dashboard.html\n",
+            "./rater_files/.ipynb_checkpoints/olp-checkpoint.py\n",
+            "./rater_files/.ipynb_checkpoints/Untitled-checkpoint.ipynb\n",
+            "./rater_files/.ipynb_checkpoints/olep-checkpoint.py\n",
+            "./rater_files/.ipynb_checkpoints/olp-checkpoint.ipynb\n",
+            "./rater_files/.ipynb_checkpoints/dashboard-checkpoint.py\n",
+            "./rater_files/rated_policies.zip\n",
+            "./rater_files/olp.py\n",
+            "./rater_files/dashboard.py\n",
+            "./rater_files/olep.py\n",
+            "./rater_files/Untitled.ipynb\n",
+            "./rater_files/olep.zip\n",
+            "./rater_files/Personal Auto Dataset and Premiums.csv\n",
+            "./rater_files/olp.ipynb\n",
+            "./Personal Auto Policy Data and Rate Tables/RateTables_RatingAlgorithm.xlsx\n",
+            "./Personal Auto Policy Data and Rate Tables/Personal Auto Dataset and Premiums.csv\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git branch"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "jNdC3r5T5xYv",
+        "outputId": "4a10b457-7daf-46a8-e0b7-f5622bb911ef"
+      },
+      "execution_count": 18,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "* \u001b[32mmain\u001b[m\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git pull origin main"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "bOeyPB3m6ZW5",
+        "outputId": "d8ce5510-a230-442d-90fc-17b58cac4e68"
+      },
+      "execution_count": 19,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "From https://github.com/trijot/PricingWorkshop_RPM2026\n",
+            " * branch            main       -> FETCH_HEAD\n",
+            "Already up to date.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git checkout -b feature-update-rates"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "0Ok8CWR462sM",
+        "outputId": "4dc0ddb3-3a2f-4ed2-cff2-52bf4b94fe16"
+      },
+      "execution_count": 20,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Switched to a new branch 'feature-update-rates'\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!git add"
+      ],
+      "metadata": {
+        "id": "JjHh-O3e6-4H"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ],
+  "metadata": {
+    "colab": {
+      "name": "Welcome To Colab",
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "display_name": "Python 3",
+      "name": "python3"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 0
+}
