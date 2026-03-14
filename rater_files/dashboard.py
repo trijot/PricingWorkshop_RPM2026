@@ -12,8 +12,8 @@ path = Path(path_str)
 # -----------------------------
 # CONFIG
 # -----------------------------
-CSV_PATH = Path(os.path.join(path,'rated_policies.csv'))         # <-- change
-OUT_HTML = Path(os.path.join(path,"dashboard.html"))
+CSV_PATH = 'rated_policies.csv'         
+OUT_HTML = "dashboard.html"
 
 # -----------------------------
 # LOAD

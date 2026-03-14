@@ -5,20 +5,9 @@ from pathlib import Path
 import os
 
 
-# Ask user for path
-path_str = input("Enter File path: ").strip()
-
-# Convert to Path object
-path = Path(path_str)
-# Validate
-if not path.exists():
-    raise FileNotFoundError(f"Path does not exist: {path}")
-
-print("Using path:", path)
-
-pol = pd.read_csv(os.path.join(path, "Personal Auto Dataset and Premiums.csv"))    
+pol = pd.read_csv("Personal Auto Dataset and Premiums.csv")    
 pol.columns=pol.columns.str.lower().str.replace(' ','_')
-tables=pd.read_excel(os.path.join(path, 'rate_tables.xlsx'),sheet_name=None)
+tables=pd.read_excel('rate_tables.xlsx',sheet_name=None)
 
 rated=pol.copy() #copy the policy table for rating
 rated.loc[:,'policy']=rated.index.to_list() #policyid
@@ -56,7 +45,6 @@ rated.loc[:,'eym']=rated.eff_dt.apply(lambda t: f'{t.year}{t.month:02d}')
 print('#multiplicative rating algorithm to arrive at pure premium')
 rated=rated[[i for i in rated.columns if not i.startswith('f_')]].copy()
 #right now zip and csv are created at base location of python, changing to current folder
-rated.to_csv(os.path.join(path ,'rated_policies.zip'), index=False, compression={'method': 'zip', 'archive_name': 'rated_policies.csv'})
-rated.to_csv(os.path.join(path,'rated_policies.csv'),index=False)
+rated.to_csv('rated_policies.csv',index=False)
 print('Prog completed and Files have been created')
 

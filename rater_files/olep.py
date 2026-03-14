@@ -51,5 +51,4 @@ olep.loc[is_last, 'ee'] += olep.loc[is_last, 'diff_ee']
 
 olep.loc[:,'xym'] = olep.m_start.dt.strftime('%Y%m') #adding exposure year month as a key for the indication tables
 olep = olep[['policy', 'm_start', 'xym', 'olep', 'ep', 'ee']]
-rated.to_csv('olep.zip', index=False, compression={'method': 'zip', 'archive_name': 'olep.csv'})
 olep.to_csv('olep.csv', index=False)
